@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf';
 //! import { message } from 'telegraf/filters';
 
-const bot = new Telegraf("6985499449:AAHNyF_vxY-9R_h6PiwKI1H4p0Swl0c3SwE")
+const bot = new Telegraf(process.env.BOT_TOKEN)
 
 bot.start((ctx) =>  ctx.reply("Welcome to my bot!"))
 
