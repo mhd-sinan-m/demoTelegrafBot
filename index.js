@@ -14,8 +14,11 @@ bot.on(message('photo'), async (ctx) => {
 });
 bot.on(message('text'), async (ctx) => {
     const text = ctx.message.text;
-    try {ctx.replyWithPhoto(`https://source.unsplash.com/random?${text}`)} 
-    catch{ctx.reply("Sorry, I can't find any image for that")}
+    try {
+        await ctx.replyWithPhoto(`https://source.unsplash.com/random?${text}`);
+    } catch (error) {
+        await ctx.reply("Sorry, I can't find any image for that");
+    }
 });
 
 
