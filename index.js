@@ -1,6 +1,6 @@
 import { Telegraf } from 'telegraf';
 import dotenv from 'dotenv';
-//! import { message } from 'telegraf/filters';
+import { message } from 'telegraf/filters';
 
 dotenv.config();
 
