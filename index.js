@@ -1,7 +1,7 @@
 import { Telegraf } from 'telegraf'
 import dotenv from 'dotenv';
 import { message } from 'telegraf/filters';
-const controller = require("./controller");
+import * as controller from "./controller.js";
 
 dotenv.config();
 
