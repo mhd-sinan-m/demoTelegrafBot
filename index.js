@@ -11,9 +11,9 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start(controller.startMsg);
 
 // Other messages
+bot.hears('hi', (ctx) => ctx.reply('Hey there'))
 bot.on(message('text'), controller.replyToText);
 bot.on(message('photo'), controller.replyToPhoto);
-bot.hears('hi', (ctx) => ctx.reply('Hey there'))
 
 // Launch
 try {
