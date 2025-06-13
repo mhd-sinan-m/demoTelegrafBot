@@ -11,13 +11,21 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.start(controller.startMsg);
 
 // Other messages
-bot.hears('hi', (ctx) => ctx.reply('Hey there'))
-bot.on(message('text'), ctx => ctx.reply('hi'));
+bot.hears(/'hi'/i, (ctx) => ctx.reply('Hey there'))
+bot.on(message('text'), controller.replyToText);
 bot.on(message('photo'), controller.replyToPhoto);
 
 // Launch
-try {
-  bot.launch();
-} catch (err) {
-  console.error(err);
-}
+// bot.launch();
+
+console.log('\x1b[31m%s\x1b[0m', 'BOT RUNNING...');
+
+module.exports = async (req, res) => {
+  try {
+    await bot.handleUpdate(req.body);
+    res.status(200).send('OK');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error');
+  }
+};
