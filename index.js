@@ -12,7 +12,7 @@ bot.start(controller.startMsg);
 
 // Other messages
 bot.hears('hi', (ctx) => ctx.reply('Hey there'))
-bot.on(message('text'), controller.replyToText);
+bot.on(message('text'), ctx => ctx.reply('hi'));
 bot.on(message('photo'), controller.replyToPhoto);
 
 // Launch
