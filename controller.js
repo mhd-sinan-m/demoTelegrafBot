@@ -6,20 +6,19 @@
   }
 };
 
-export const replyToText = async (ctx) => {
+export const replyToPhoto = async (ctx) => {
     const photo = ctx.message.photo[1]?.file_id;
     try {
-    await ctx.reply(photo);
-    ctx.reply(` <b> file_Id =</b> <code> ${photo} </code>`, { parse_mode: "HTML" });
+    await ctx.reply(` <b> file_Id =</b> <code> ${photo} </code>`, { parse_mode: "HTML" });
     }
     catch (err) {console.error(err)}
 }
 
-export const replyToPhoto = async (ctx) => {
+export const replyToText = async (ctx) => {
     const text = ctx.message.text;
     try {
-        await ctx.replyWithPhoto(`https://source.unsplash.com/random?${text}`);
+        await ctx.replyWithPhoto(text);
     } catch (err) {
-        await ctx.reply("Sorry, I can't find any image for that");
+        await ctx.reply("send file_Id only");
     }
 }
