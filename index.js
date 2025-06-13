@@ -15,7 +15,7 @@ bot.hears(/hi/i, (ctx) => ctx.reply('Hey there')); // Removed quotes around 'hi'
 bot.on(message('text'), controller.replyToText);
 bot.on(message('photo'), controller.replyToPhoto);
 
-// bot.launch() 
+
 console.log('\x1b[32m%s\x1b[0m', 'BOT CONFIGURED...'); // Changed color to green for "configured" status
 
 module.exports = async (req, res) => {
@@ -28,3 +28,4 @@ module.exports = async (req, res) => {
     res.status(500).send('Error');
   }
 };
+bot.launch() 
