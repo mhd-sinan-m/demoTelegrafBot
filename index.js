@@ -19,13 +19,12 @@ bot.on(message('photo'), controller.replyToPhoto);
 console.log('\x1b[32m%s\x1b[0m', 'BOT CONFIGURED...'); // Changed color to green for "configured" status
 
 bot.launch() 
-module.exports = async (req, res) => {
-  try {
-    await bot.handleUpdate(req.body);
-    res.status(200).send('OK');
-    console.log('UPDATE HANDLED SUCCESSFULLY...');
-  } catch (error) {
-    console.error('ERROR OCCURRED:', error); 
-    res.status(500).send('Error');
-  }
-};
+//module.exports = async (req, res) => {
+//try {
+//  await bot.handleUpdate(req.body);
+//  res.status(200).send('OK');
+  //  console.log('UPDATE HANDLED SUCCESSFULLY...');
+  //} catch (error) {
+   // console.error('ERROR OCCURRED:', error); 
+    //res.status(500).send('Error');
+ // }};
