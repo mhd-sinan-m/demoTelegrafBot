@@ -14,4 +14,17 @@ bot.start(controller.startMsg);
 bot.hears(/hi/i, (ctx) => ctx.reply('Hey there')); // Removed quotes around 'hi'
 bot.on(message('text'), controller.replyToText);
 bot.on(message('photo'), controller.replyToPhoto);
-bot.launch()
+
+// vercel handler
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    try {
+      await bot.handleUpdate(req.body);
+      res.status(200).send('OK');
+    } catch (err) {
+      res.status(500).send('Error handling update');
+    }
+  } else {
+    res.status(200).send('Set this endpoint as your Telegram webhook URL.');
+  }
+}
